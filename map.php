@@ -1,9 +1,12 @@
+<?php
+  include 'includes/config.php';
+?>
 <!DOCTYPE html>
 <html>
   <head>
     <title>Simple styled maps</title>
     <link href="/maps/documentation/javascript/examples/default.css" rel="stylesheet">
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6jQSuPRoe1lBfvnsUPFd6SPfJPNZqAmY&sensor=false"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<?php echo KEY_FLICKR; ?>&sensor=false"></script>
     <script>
       var map;
       var brooklyn = new google.maps.LatLng(40.6743890, -73.9455);
