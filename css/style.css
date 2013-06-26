@@ -50,29 +50,35 @@ table {
 
 /******* STYLING *********/
 
+@font-face {font-family: 'LitteraPlainMedium';src: url('../webfonts/23E250_0_0.eot');src: url('../webfonts/23E250_0_0.eot?#iefix') format('embedded-opentype'),url('../webfonts/23E250_0_0.woff') format('woff'),url('../webfonts/23E250_0_0.ttf') format('truetype');}
+
 body{
 	width: 100%;
 	height: 100%;
-	font-family: 'Dosis', Helvetica, Arial, Sans-Serif;
+	font-family: 'Enriqueta', Helvetica, Arial, Sans-Serif;
 	font-size: 16pt;
 	font-weight: 400;
 	line-height: 180%;
 	color: #58b6dd;
+	background: #F2F2F2;
+}
+h1{
+	font-family: 'LitteraPlainMedium',Arial,Helvetica,sans-serif;
+	font-weight: normal;
+	font-size: 110%;
+	color: black;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+}
+h2{
+	font-weight: 700;
+	font-size: 125%;
+	color: black;
 }
 img{
 	max-width: 100%;
 	width: auto;
 	height: auto;
-}
-h1{
-	font-weight: 700;
-	font-size: 110%;
-	color: black;
-}
-h2{
-	font-weight: 200;
-	font-size: 160%;
-	color: black;
 }
 	#cont{
 		margin: 0 auto;
@@ -80,6 +86,8 @@ h2{
 		/* iPhone 5 specs */
 		width: 640px;
 		height: 1136px;
+		background: white;
+		position: relative;
 	}
 		#wrap{
 			width: 100%;
@@ -104,6 +112,28 @@ h2{
 				.blurb .logo{
 					padding: 0.5em 0;
 				}
+			.main.feed{
+				width: 100%;
+				height: 100%;
+				overflow: auto;
+			}
+				.main.feed li{
+					width: 100%;
+					height: 320px;
+				}
+					.main.feed .crop{
+						width: 50%;
+						height: 100%;
+						background-position: center center;
+					}
+			.main.map{
+				width: 100%;
+				height: 100%;
+			}
+				#map-canvas{
+					width: 100%;
+					height: 100%;
+				}
 
 		footer{
 			width: 100%;
@@ -126,6 +156,10 @@ h2{
 					width: 15%;
 					height: 100%;
 					text-indent: -9999px;
+					transition: background .2s;
+					-moz-transition: background .2s;
+					-webkit-transition: background .2s;
+					-o-transition: background .2s;
 				}
 					.menu li.log{
 						width: 25%;
@@ -137,6 +171,9 @@ h2{
 				        background-image:    -moz-linear-gradient(top, #285e7f, #4591b0); /* Firefox 3.6-15 */
 				        background-image:      -o-linear-gradient(top, #285e7f, #4591b0); /* Opera 11.10-12.00 */
 				        background-image:         linear-gradient(to bottom, #285e7f, #4591b0); /* Chrome 26, Firefox 16+, IE 10+, Opera 12.10+ */
+					}
+					.menu li:hover{
+						background-color: rgba(40,94,127,0.15);
 					}
 						.menu li a{
 							width: 100%;
