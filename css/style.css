@@ -60,7 +60,7 @@ body{
 	font-weight: 400;
 	line-height: 180%;
 	color: #58b6dd;
-	background: #F2F2F2;
+	background: #A2A2A2;
 }
 h1, .info h2{
 	font-family: 'LitteraPlainMedium',Arial,Helvetica,sans-serif;
@@ -82,7 +82,7 @@ img{
 }
 	#cont{
 		margin: 0 auto;
-		border: solid 1px #DEDEDE;
+		border: solid 1px #7E7E7E;
 		/* iPhone 5 specs */
 		width: 640px;
 		height: 1136px;
@@ -116,6 +116,7 @@ img{
 				width: 100%;
 				height: 100%;
 				overflow: auto;
+				position: relative;
 			}
 				.main.feed li{
 					width: 100%;
@@ -147,9 +148,15 @@ img{
 						.info h2{
 							font-size: 150%;
 							text-transform: none;
+							margin-bottom: 1em;
 						}
 						.info p.desc, .info p.desc a{
 							color: #57b6dd;
+						}
+						.info p.location{
+							font-size: 90%;
+							color: black;
+							margin-top: 1em;
 						}
 						.info p.geo{
 							font-size: 75%;
@@ -164,6 +171,9 @@ img{
 					.main.feed .odd .info{
 						float: right;
 					}
+				.main.single{
+					overflow: hidden;
+				}
 					.main.single .img-bg{
 						width: 100%;
 						height: 100%;
@@ -171,10 +181,55 @@ img{
 						background-position: center;
 						background-repeat: no-repeat;
 					}
+					.main.single .img-btns,
+					.main.map .map-btns{
+						width: 100%;
+						height: auto;
+						position: relative;
+					}
+						.main.single .img-btns .btn-back,
+						.main.single .img-btns .btn-info,
+						.main.map .map-btns .btn-back,
+						.main.map .map-btns .btn-info{
+							width: 60px;
+							height: 59px;
+							display: block;
+							position: absolute;
+							z-index: 500;
+						}
+						.main.single .img-btns .btn-back,
+						.main.map .map-btns .btn-back{
+							top: 3em;
+							left: 10%;
+						}
+						.main.single .img-btns .btn-info,
+						.main.map .map-btns .btn-info{
+							top: 3em;
+							right: 10%;
+						}
+							.main.single .img-btns a,
+							.main.map .map-btns a{
+								background: url(../images/single-img-btns.png);
+								width: 100%;
+								height: 100%;
+								display: block;
+								text-indent: -9999px;
+							}
+							.main.single .img-btns .btn-back a,
+							.main.map .map-btns .btn-back a{
+								background-position: left;
+							}
+							.main.single .img-btns .btn-info a,
+							.main.map .map-btns .btn-info a{
+								background-position: right;
+							}
 					.main.single .img-back{
 						width: 100%;
 						height: 100%;
+						z-index: 200;
 						display: block;
+						position: absolute;
+						top: 0;
 						background-color: #ffffff;
 					  	background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#e8e7e7)); /* Chrome, Safari 4+ */
 					  	background-image: -webkit-linear-gradient(top, #ffffff, #e8e7e7); /* Chrome 10-25, iOS 5+, Safari 5.1+ */
@@ -182,24 +237,76 @@ img{
 					  	background-image:      -o-linear-gradient(top, #ffffff, #e8e7e7); /* Opera 11.10-12.00 */
 					  	background-image:         linear-gradient(to bottom, #ffffff, #e8e7e7);
 					}
-						.img-back .img-big{
+						/* Image element version */
+						/*.img-back .img-big{
 							width: 90%;
 							height: auto;
 							margin: 0 auto;
 							padding-top: 20%;
+						}*/
+						/* Background image version */
+						.img-back .img-big{
+							width: 100%;
+							height: 100%;
+							margin: 0 auto;
+							background-position: center;
+							background-repeat: no-repeat;
+							background-size: auto 100%;
 						}
 							.img-back .img-big img{
 								-webkit-box-shadow: 4px 4px 30px 0px rgba(0,0,0,0.2); /* Android 2.3+, iOS 4.0.2-4.2, Safari 3-4 */
           						box-shadow: 4px 4px 30px 0px rgba(0,0,0,0.2);
 							}
+					.main.single .img-info,
+					.main.single .map-info{
+						position: absolute;
+						width: 100%;
+						height: 30%;
+						bottom: -30%;
+						z-index: 500;
+						display: block;
+						background-color: #ffffff;
+					  	background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#F5F5F5)); /* Chrome, Safari 4+ */
+					  	background-image: -webkit-linear-gradient(top, #ffffff, #F5F5F5); /* Chrome 10-25, iOS 5+, Safari 5.1+ */
+					  	background-image:    -moz-linear-gradient(top, #ffffff, #F5F5F5); /* Firefox 3.6-15 */
+					  	background-image:      -o-linear-gradient(top, #ffffff, #F5F5F5); /* Opera 11.10-12.00 */
+					  	background-image:         linear-gradient(to bottom, #ffffff, #F5F5F5);
+					  	-webkit-box-shadow: 0px -6px 30px 0px rgba(0,0,0,0.25); /* Android 2.3+, iOS 4.0.2-4.2, Safari 3-4 */
+          				box-shadow: 0px -6px 30px 0px rgba(0,0,0,0.25);
+          				transition: bottom .5s;
+          				-moz-transition: bottom .5s;
+          				-webkit-transition: bottom .5s;
+          				-o-transition: bottom .5s;
+					}
+					.main.single .img-info.open,
+					.main.single .map-info.open{
+						bottom: 0;
+					}
+						.img-info .info-inner,
+						.map-info .info-inner{
+							width: 80%;
+							height: 100%;
+							margin: 0 auto;
+							font-size: 80%;
+						}
+							.info-inner .location, .info-inner .coor{
+								font-size: 90%;
+								color: black;
+							}
+							.info-inner h2{
+								padding-top: 10%;
+							}
 
 			.main.map{
 				width: 100%;
 				height: 100%;
+				overflow: hidden;
 			}
 				#map-canvas{
 					width: 100%;
 					height: 100%;
+					position: relative;
+					z-index: 200;
 				}
 
 		footer{
@@ -265,3 +372,8 @@ img{
 						.btn.cam a{
 							background: url(../images/icon-camera.png) center no-repeat;
 						}
+		.array{
+			color: black;
+			font-size: 60%;
+			line-height: 130%;
+		}
